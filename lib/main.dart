@@ -28,39 +28,62 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  DateTime now = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     final List<Transaction> transactions = [
-      Transaction(
-          id: 't01', title: 'New Jacket', amount: 128.33, date: DateTime.now()),
-      Transaction(
-          id: 't02', title: 'New Shoes', amount: 88, date: DateTime.now()),
-      Transaction(
-          id: 't03', title: 'Coffee', amount: 2.53, date: DateTime.now()),
-      Transaction(
-          id: 't04', title: 'Dinner', amount: 39.73, date: DateTime.now()),
-      Transaction(
-          id: 't05',
-          title: 'Plane Ticket',
-          amount: 480.25,
-          date: DateTime.now()),
+      Transaction(id: 't01', title: 'New Jacket', amount: 128.33, date: now),
+      Transaction(id: 't02', title: 'New Shoes', amount: 88, date: now),
+      Transaction(id: 't03', title: 'Coffee', amount: 2.53, date: now),
+      Transaction(id: 't04', title: 'Dinner', amount: 39.73, date: now),
+      Transaction(id: 't05', title: 'Plane Ticket', amount: 480.25, date: now),
     ];
+
+    String titleInput;
+    String amountInput;
 
     return Scaffold(
       appBar: AppBar(
         title: Text('Personal Finance'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Card(
-            child: Container(
-              width: double.infinity,
+          Container(
+            width: double.infinity,
+            child: Card(
               color: Colors.blue,
               child: Container(
                 child: Text(
                   'CHART',
                 ),
+              ),
+              elevation: 5,
+            ),
+          ),
+          Card(
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Title'),
+                    onChanged: (val) => titleInput = val,
+                  ),
+                  TextField(
+                      onChanged: (val) => amountInput = val,
+                      decoration: InputDecoration(labelText: 'Amount')),
+                  FlatButton(
+                    child: Text('Add Transaction'),
+                    onPressed: () {
+                      print(titleInput);
+                      print(amountInput);
+                    },
+                    textColor: Colors.purple,
+                  )
+                ],
               ),
             ),
             elevation: 5,
