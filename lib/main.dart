@@ -1,6 +1,4 @@
-import 'dart:ffi';
 import './transaction.dart';
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -31,8 +29,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
-  var format = DateFormat.yMd('uk');
-
   Widget build(BuildContext context) {
     final List<Transaction> transactions = [
       Transaction(
@@ -96,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 16),
                         ),
-                        Text(DateFormat('dd-MM+-yyyy').format(tx.date),
+                        Text(DateFormat('dd-MM-yyyy').format(tx.date),
                             style: TextStyle(
                               color: Colors.grey,
                             ))
