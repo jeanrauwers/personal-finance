@@ -26,11 +26,13 @@ class MyHomePage extends StatelessWidget {
         appBar: AppBar(
           title: Text('Personal Finance'),
         ),
-        body: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Chart(),
-              UserTransactions(),
-            ]));
+        body: SingleChildScrollView(
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Chart(),
+                UserTransactions(),
+              ]),
+        ));
   }
 }
