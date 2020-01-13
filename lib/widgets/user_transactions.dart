@@ -11,6 +11,6 @@ class UserTransactions extends StatefulWidget {
 class _UserTransactionsState extends State<UserTransactions> {
   @override
   Widget build(BuildContext context) {
-    return Column(children: [NewTransaction(), TransactionList()]);
+    return Column(children: <Widget>[NewTransaction(), TransactionList()]);
   }
 }
