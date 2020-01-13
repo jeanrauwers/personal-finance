@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import './widgets/chart.dart';
 import './widgets/transaction_list.dart';
-import './widgets/add_transaction.dart';
+import './widgets/new_transaction.dart';
 
 void main() => runApp(MyApp());
 
@@ -31,7 +31,7 @@ class MyHomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Chart(),
-              AddTransactionState(),
+              NewTransaction(),
               TransactionList(),
             ]));
   }
