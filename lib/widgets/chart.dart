@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:personal_expenses/models/transaction.dart';
 import 'package:intl/intl.dart';
+import './chart_bar.dart';
 
 class Chart extends StatelessWidget {
   final List<Transaction> recentTransactions;
@@ -22,9 +23,15 @@ class Chart extends StatelessWidget {
         }
       }
       return {
-        'day': DateFormat.E().format(weekDay),
+        'day': DateFormat.E().format(weekDay).substring(0, 1),
         'amount': totalSum,
       };
+    });
+  }
+
+  double get totalSpending {
+    return groupedTransactionsValues.fold(0.0, (sum, item) {
+      return sum + item['amount'];
     });
   }
 
@@ -34,7 +41,12 @@ class Chart extends StatelessWidget {
       color: Colors.blue,
       child: Container(
         child: Row(
-          children: <Widget>[Text('CHART')],
+          children: groupedTransactionsValues.map((data) {
+            return ChartBar(
+                label: data['day'],
+                spendingAmount: data['amount'],
+                spendingPercentual: (data['amount'] as double) / totalSpending);
+          }).toList(),
         ),
       ),
       elevation: 5,

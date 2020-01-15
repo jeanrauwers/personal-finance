@@ -14,6 +14,8 @@ class _NewTransactionState extends State<NewTransaction> {
 
   final amountController = TextEditingController();
 
+  // final dateController = TextEditingController();
+
   void submitHandler() {
     final enterTitle = titleController.text;
     final enteredAmount = double.parse(amountController.text);
@@ -44,6 +46,12 @@ class _NewTransactionState extends State<NewTransaction> {
               keyboardType: TextInputType.number,
               onSubmitted: (_) => submitHandler(),
             ),
+            // TextField(
+            //   controller: dateController,
+            //   decoration: InputDecoration(labelText: 'Date'),
+            //   keyboardType: TextInputType.number,
+            //   onSubmitted: (_) => submitHandler(),
+            // ),
             FlatButton(
               child: Text('Add Transaction'),
               onPressed: submitHandler,

@@ -86,7 +86,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    print(_recentTransactions);
     return Scaffold(
         appBar: AppBar(
           title: Text('Personal Expenses'),
